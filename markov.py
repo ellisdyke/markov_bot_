@@ -65,13 +65,13 @@ def parse_corpus(words):
 	return counts 
 
 
-#works!!
+#works
 def generate_sentence(starts_, ends, mid, counts_):
 
 	strt = random.choice(starts_)
 	current_word = strt
 	sentence = [current_word]
-	n = 10
+	n = 15 #randomize number of words per sentence later
 	i = 0
 
 	while i != n - 1:
