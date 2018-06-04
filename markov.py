@@ -24,7 +24,7 @@ def get_corpus():
 
 		with open(filepath, "r") as text:
 
-			corpus = text.read()
+			corpus = text.read().replace('"', '').replace('”', '')
 
 		_words = corpus.split()
 
