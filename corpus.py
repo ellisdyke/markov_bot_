@@ -31,11 +31,9 @@ class Corpus():
 		middle_words = []
 
 		#step
-		for i in range(0, len(_words), self.order):
-			#n-gram is a slice from i to i + order 
-			n_gram = _words[i: i + self.order]
-			#and then joined
-			n_gram = ' '.join(n_gram)
+		for i in range(0, (len(_words)-1), self.order):
+	
+			n_gram = ' '.join(_words[i: i + self.order])
 			n_grams.append(n_gram)
 
 		#same as: 
