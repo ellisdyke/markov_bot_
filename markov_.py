@@ -1,29 +1,33 @@
-#! python3 
+#! python3
 
 import numpy as np 
 import random
 
-def chain(starts_, ends, mid, counts_):
 
-	strt = random.choice(starts_)
-	current_word = strt
-	sentence = [current_word]
-	n = random.randint(5, 15)
-	i = 0
+def chain(starts_, ends, mid, counts_, order):
 
-	while i != n - 1:
-		
-		next_word = random.choice(counts_.get(current_word))
+    strt = random.choice(starts_)
+    current_word = strt
+    sentence = [current_word]
+    #order = number of words per token
+    #words per sent = number of tokens of said order to use
+    words_per_sent = (random.randint(5, 15) / order)
 
-		if next_word not in starts_ and next_word not in ends:
+    i = 0
 
-			sentence.append(next_word)
-			current_word = next_word 
-		
-		i += 1
+    while i < (words_per_sent - order):
+        
+        next_word = random.choice(counts_.get(current_word))
 
-	
-	e = random.choice(ends)
-	sentence.append(e)
+        if next_word not in starts_ and next_word not in ends:
 
-	return sentence
+            sentence.append(next_word)
+            current_word = next_word 
+        
+        i += order
+
+    
+    e = random.choice(ends)
+    sentence.append(e)
+
+    return sentence
